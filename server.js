@@ -20,6 +20,13 @@ io.on("connection", (socket) => {
     });
 });
 
+app.get("/ClearUsers", (req, res) => {
+    users = {}; 
+    io.emit("location-updated",users);
+    res.json({ message: "All users cleared",status:true });
+});
+
+
 server.listen(3000, () => {
     console.log("Server running on http://localhost:3000");
 });
