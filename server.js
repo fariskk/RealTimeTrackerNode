@@ -18,7 +18,7 @@ io.on("connection", (socket) => {
     socket.on("disconnect", () => {
         console.log("User disconnected",socket.handshake.query.userId);
         var userId=socket.handshake.query.userId;
-        delete users.userId;
+        delete obj[userId]
         io.emit("location-updated",users);
     });
 });
